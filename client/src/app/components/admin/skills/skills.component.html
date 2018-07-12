@@ -1,0 +1,43 @@
+<div class="button_container">
+  <button mat-raised-button color="primary" routerLink="group">Add group</button>
+  <button mat-raised-button color="primary" routerLink="new">Add skill</button>
+</div>
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="parent">
+      <mat-header-cell *matHeaderCellDef style="flex: 1">Parent</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 1"> {{element.parent || 'none'}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="group">
+      <mat-header-cell *matHeaderCellDef style="flex: 1">Group</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 1"> {{element.group}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef style="flex: 2">Name</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 2"> {{element.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef style="flex: 4">Description</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 4">{{element.description}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="levels">
+      <mat-header-cell *matHeaderCellDef style="flex: 4">Levels</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 4">{{element.levels.join(' > ')}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef style="flex: 1"></mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 1">
+        <button mat-raised-button color="primary" (click)="onEdit(element._id)">Edit</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

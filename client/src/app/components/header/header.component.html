@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Learning Path</span>
+    <span class="spacer"></span>
+    <button *ngIf="!isLogined" mat-button routerLink="/login">Login</button>
+    <button *ngIf="!isLogined" mat-button routerLink="/signup">Sign Up</button>
+    <button *ngIf="isLogined" mat-button (click)="onLogOut()">Log Out</button>
+  </mat-toolbar-row>
+</mat-toolbar>

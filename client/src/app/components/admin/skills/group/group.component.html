@@ -1,0 +1,16 @@
+<div class="form_container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input type="text" placeholder="Group name" matInput formControlName="group" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let group of groups" [value]="group.name">
+          {{ group.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" placeholder="Subgroup name" matInput formControlName="subgroup">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!form.valid">Create</button>
+  </form>
+</div>

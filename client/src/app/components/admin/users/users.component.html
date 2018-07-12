@@ -1,0 +1,31 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef style="flex: 3">Email</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 3"> {{element.email}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <mat-header-cell *matHeaderCellDef style="flex: 2">Role</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 2"> {{element.role}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="disable">
+      <mat-header-cell *matHeaderCellDef style="flex: 1"></mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 1">
+        <button mat-raised-button color="warn">Disable</button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="enable">
+      <mat-header-cell *matHeaderCellDef style="flex: 1"></mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 1">
+        <button mat-raised-button color="primary">Enable</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

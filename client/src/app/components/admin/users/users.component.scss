@@ -1,0 +1,17 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  margin: 10px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 700px;
+}
+
+@media only screen and (max-width: 600px) {
+  .example-container {
+    margin: 0;
+  }
+}
